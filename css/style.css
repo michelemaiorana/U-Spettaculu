@@ -1,0 +1,958 @@
+:root {
+    --nero: #1A1A1A;
+    --nero-opacizzato: rgba(26, 26, 26, 0.7);
+    --nerino: #2C2C2C;
+    --background: #F7F5F2;
+    --arancione: #FF4D00;
+    --giallo: #FFC94D;
+    --rosso: #CD4B18;
+    --bianco: #FFFFFF;
+    --grigio: #BEBEBE;
+    --arancione-hover: #912c00;
+}
+
+.protest-strike-regular {
+    font-family: "Protest Strike", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.m-plus-1p-regular {
+    font-family: "M PLUS 1p", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: var(--background);
+    color: var(--nero);
+    width: 100%;
+    max-width: 1520px;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: var(--nero);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    margin: 0 100px;
+    position: relative;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+}
+
+.logo {
+    font-family: "Protest Strike", sans-serif;
+    font-size: 30px;
+}
+
+.nav-link{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-link a {
+    font-family: "Protest Strike", sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.nav-link a:hover,
+.nav-link a.attivo {
+    border-bottom-color: var(--nero);
+}
+
+.hero {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 515px;
+    overflow: hidden;
+    background: var(--nero);
+}
+
+.hero-track {
+    display: flex;
+    width: 300%;
+    height: 100%;
+    animation: slide 15s infinite;
+}
+
+.hero-slide {
+    position: relative;
+    width: 100vw;
+    height: 100%;
+}
+
+.hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center -80px;
+    opacity: 1;
+}
+
+.hero-slide::before{
+    content:"";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, #1A1A1A 0%, rgba(62,62,62,0.5) 50%, rgba(99,99,99,0) 100%);
+    z-index: 1;
+}
+
+.hero-contenuti {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 0px 0px 54px 100px;
+    max-width: 100%;
+    color: var(--bianco);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 2;
+}
+
+.hero-titolo {
+    font-family: "Protest Strike", sans-serif;
+    font-size: 60px;
+    font-weight: 100;
+    line-height: 80%;
+}
+
+.hero-descrizione {
+    font-family: "M PLUS 1p", sans-serif;
+    font-size: 18px;
+    line-height: 120%;
+    max-width: 430px;
+    margin-bottom: 10px;
+}
+
+.btn-arancione {
+    background-color: var(--arancione);
+    color: var(--bianco);
+    font-family: "M PLUS 1p", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 15px 55px;
+    max-width: fit-content;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn-arancione:hover {
+  background-color: var(--arancione-hover);
+}
+
+.hero-dots {
+  position: absolute;
+  right: 100px;
+  bottom: 54px;
+  display: flex;
+  gap: 10px;
+}
+
+.hero-dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  position: relative;
+}
+
+.hero-dots span::after {
+  content:"";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #ffffff;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.hero-dots span:nth-child(1)::after{animation:dot1 15s infinite;}
+.hero-dots span:nth-child(2)::after{animation:dot2 15s infinite;}
+.hero-dots span:nth-child(3)::after{animation:dot3 15s infinite;}
+
+@keyframes slide{
+  0%, 28.33%{transform:translateX(0);}
+  33.33%, 61.66%{transform:translateX(-100vw);}
+  66.66%, 95%{transform:translateX(-200vw);}
+  100%{transform:translateX(0);}
+}
+
+@keyframes dot1{
+  0%{opacity:1;} 28.33%{opacity:1;} 33.33%,100%{opacity:0;}
+}
+@keyframes dot2{
+  0%,33.33%{opacity:0;} 38.33%,61.66%{opacity:1;} 66.66%,100%{opacity:0;}
+}
+@keyframes dot3{
+  0%,66.66%{opacity:0;} 71.66%,95%{opacity:1;} 100%{opacity:0;}
+}
+
+.scopri-eventi {
+  padding: 50px 100px;
+}
+
+.scopri-eventi-contenitore {
+  display: flex;
+  flex-direction: column;
+}
+
+.titolo-filtri {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.scopri-titolo {
+  font-family: "Protest Strike", sans-serif;
+  font-size: 60px;
+  font-weight: 100;
+}
+
+.scopri-filtri {
+  display: flex;
+  gap: 8px;
+}
+
+.filtro {
+  padding: 6px 25px;
+  background-color: transparent;
+  border: 2px solid var(--nero-opacizzato);
+  border-radius: 50px;
+  font-family: "M PLUS 1p", sans-serif;
+  color: var(--nero-opacizzato);
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.filtro.active,
+.filtro:hover {
+  background: var(--nero);
+  color: var(--bianco);
+}
+
+.griglia-eventi {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card-eventi {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  border-radius: 15px;
+  overflow: hidden;
+  background: var(--bianco);
+  border: 2px solid var(--grigio);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+}
+
+.card-immagine {
+  position: relative;
+  height: 210px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.card-immagine img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  opacity: 0.9;
+  transition: transform .4s ease, opacity .4s ease;
+}
+
+.card-eventi:hover .card-immagine img {
+  transform: scale(1.06);
+  opacity: 1;
+}
+
+.badge-concerto, .badge-teatro {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: fit-content;
+  height: fit-content;
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-family: "M PLUS 1p", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge-concerto {
+  background-color: var(--giallo);
+  color: var(--nero);
+}
+
+.badge-teatro {
+  background-color: var(--rosso);
+  color: var(--bianco);
+}
+
+.info-evento {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5px;
+}
+
+.nome-evento {
+  font-family: "Protest Strike", sans-serif;
+  font-size: 28px;
+  color: var(--nero);
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.luogo-evento {
+  font-family: "M PLUS 1p", sans-serif;
+  font-size: 18px;
+  color: var(--nero);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.data-evento {
+  font-family: "M PLUS 1p", sans-serif;
+  font-size: 14px;
+  color: var(--nero);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.spazio-bottone {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.categorie {
+  padding: 60px 100px;
+  background-color: var(--nero);
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.griglia-categorie {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card-categoria {
+  display: flex;
+  flex-direction: column;
+  min-height: 220px;
+  background-color: var(--nerino);
+  padding: 30px;
+  gap: 5px;
+  justify-content: flex-end;
+  border-radius: 20px;
+  border: 0.5px solid var(--grigio);
+  transition: transform 0.25s ease;
+}
+
+.card-categoria:hover {
+  transform: translateY(-8px);
+}
+
+.nome-categoria {
+  font-family: "Protest Strike", sans-serif;
+  font-size: 34px;
+  color: var(--bianco);
+  font-weight: 100;
+}
+
+.descrizione-categoria {
+  font-family: "M PLUS 1p", sans-serif;
+  font-size: 17px;
+  color: var(--grigio);
+  margin-bottom: 15px;
+}
+
+.btn-categoria {
+  font-family: "Protest Strike", sans-serif;
+  font-size: 17px;
+  letter-spacing: 0.3px;
+  color: var(--arancione);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+}
+
+.btn-categoria span {
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.25s ease;
+}
+
+.card-categoria:hover .btn-categoria span {
+  border-bottom-color: var(--arancione);
+}
+
+.btn-categoria::after {
+  content: "→";
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.card-categoria:hover .btn-categoria::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.footer {
+  padding: 25px 100px;
+  background-color: var(--nero);
+  border-top: 1px solid var(--grigio);
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.footer-contenuti {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Protest Strike", sans-serif;
+  color: var(--bianco);
+}
+
+.footer-logo {
+  font-size: 25px;
+  color: var(--bianco);
+}
+
+.footer-copyright {
+  font-size: 15px;
+}
+
+.hero-titolo-badge {
+  display: flex;
+  gap: 15px;
+  align-items: end;
+}
+
+.badge-concerto-alternativo, .badge-teatro-alternativo {
+  width: fit-content;
+  height: fit-content;
+  padding: 4px 20px;
+  border-radius: 50px;
+  font-family: "M PLUS 1p", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-concerto-alternativo {
+  border: 2px solid var(--giallo);
+  color: var(--giallo);
+}
+
+.badge-teatro-alternativo {
+  border: 2px solid var(--rosso);
+  color: var(--rosso);
+}
+
+.dettagli-evento {
+  padding: 50px 100px;
+}
+
+.griglia-dettagli {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+}
+
+.colonna-sinistra,
+.colonna-destra {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.card-dettaglio {
+  background: var(--bianco);
+  border: 2px solid var(--grigio);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+}
+
+.titolo-card {
+  font-family: "M PLUS 1p", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--arancione);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.card-immagine-evento {
+  padding: 0;
+  overflow: hidden;
+  height: 460px;
+}
+
+.card-immagine-evento img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-info-evento {
+  height: fit-content;
+}
+
+.info-titolo {
+  font-family: "M PLUS 1p", sans-serif;
+  font-size: 14px;
+  color: var(--grigio);
+  text-transform: uppercase;
+}
+
+.info-riga {
+  font-family: "M PLUS 1p", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding-bottom: 12px;
+  margin-bottom: 8px;
+  color: var(--nero);
+  border-bottom: 1px solid var(--grigio);
+}
+
+.ultima-riga {
+  border-bottom: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card-biografia {
+  height: fit-content;
+}
+
+.card-biografia p {
+  font-family: "M PLUS 1p", sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--nero);
+}
+
+.card-mappa iframe {
+  border-radius: 10px;
+  margin-top: 5px;
+}
+
+.card-altre-date {
+  height: fit-content;
+}
+
+.gruppo-data {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--grigio);
+}
+
+.ultima-data {
+  border-bottom: none;
+  padding: 0;
+  margin: 0;
+}
+
+.città-luogo {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.città {
+  font-family: "M PLUS 1p", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--nero);
+}
+
+.luogo {
+  font-family: "M PLUS 1p", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--nero);
+}
+
+.data {
+  font-family: "M PLUS 1p", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--arancione);
+  text-transform: uppercase;
+}
+
+.card-biglietti {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-biglietti p {
+  font-family: "M PLUS 1p", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--nero);
+  margin-bottom: 8px;
+
+}
+
+.bottoni-biglietti {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btn-biglietto {
+  font-family: "M PLUS 1p", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--nero);
+  border: 1px solid var(--grigio);
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.potrebbero-piacerti {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.potrebbero-piacerti-titolo {
+  font-family: "Protest Strike", sans-serif;
+  font-size: 50px;
+  font-weight: 100;
+  color: var(--bianco);
+}
+
+.btn-potrebbero-piacerti {
+  font-family: "Protest Strike", sans-serif;
+  font-size: 17px;
+  letter-spacing: 0.3px;
+  color: var(--arancione);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+}
+
+.btn-potrebbero-piacerti span {
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.25s ease;
+}
+
+.btn-potrebbero-piacerti:hover span {
+  border-bottom-color: var(--arancione);
+}
+
+.btn-potrebbero-piacerti::after {
+  content: "→";
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.btn-potrebbero-piacerti:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.faq {
+  padding: 50px 100px;
+}
+
+.faq-titolo {
+  font-family: "Protest Strike", sans-serif;
+  font-size: 60px;
+  font-weight: 100;
+  line-height: 100%;
+  margin-bottom: 26px;
+}
+
+.faq-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.faq-item {
+  background: var(--bianco);
+  border: 2px solid var(--grigio);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.faq-item[open] {
+  border-color: var(--arancione);
+}
+
+.faq-domanda {
+  font-family: "Protest Strike", sans-serif;
+  font-size: 22px;
+  font-weight: 100;
+  padding: 20px;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-domanda::after {
+  content: "+";
+  font-family: "M PLUS 1p", sans-serif;
+  font-size: 26px;
+  font-weight: 300;
+  color: var(--arancione);
+  transition: transform 0.25s ease;
+}
+
+.faq-item[open] .faq-domanda::after {
+  transform: rotate(45deg);
+}
+
+.faq-risposta {
+  font-family: "M PLUS 1p", sans-serif;
+  font-size: 17px;
+  color: var(--nero);
+  padding: 0 30px 22px 24px;
+}
+
+
+@media (max-width: 1080px) {
+  .griglia-eventi {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-titolo {
+    font-size: 56px;
+  }
+
+  .hero-slide img {
+    object-position: center;
+  }
+}
+
+@media (max-width: 720px) {
+  .griglia-eventi {
+    grid-template-columns: 1fr;
+  }
+
+  .griglia-dettagli {
+    flex-direction: column;
+  }
+
+  .dettagli-evento {
+    padding: 50px 20px;
+  }
+
+  .scopri-filtri {
+    flex-wrap: wrap;
+  }
+
+  .navbar {
+    margin: 0 20px;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    margin-left: auto;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--nero);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .menu-toggle:checked ~ label.hamburger span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .menu-toggle:checked ~ label.hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle:checked ~ label.hamburger span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .menu-toggle:checked ~ nav .nav-link {
+    display: flex;
+  }
+
+  .nav-link {
+    display: none;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: var(--background);
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+    border-bottom: 1px solid var(--grigio);
+    z-index: 100;
+  }
+
+  .hero {
+    height: 520px;
+  }
+
+  .hero-slide img {
+    object-position: center;
+  }
+
+  .hero-titolo {
+    font-size: 40px;
+  }
+
+  .hero-titolo-badge {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .hero-contenuti {
+    padding: 0 20px 44px 20px;
+  }
+
+  .hero-dots {
+    right: 20px;
+    bottom: 44px;
+  }
+
+  .scopri-titolo {
+    font-size: 34px;
+  }
+
+  .scopri-eventi {
+    padding: 50px 20px;
+  }
+
+  .card-immagine {
+    height: 300px;
+  }
+
+  .categorie {
+    padding: 60px 20px;
+  }
+
+  .griglia-categorie {
+    grid-template-columns: 1fr;
+  }
+
+  .card-categoria {
+    min-height: 220px;
+    padding: 28px;
+  }
+
+  .footer {
+    padding: 25px 20px;
+  }
+
+  .footer-contenuti {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .card-immagine-evento {
+    min-height: 240px;
+  }
+
+  .potrebbero-piacerti {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .potrebbero-piacerti-titolo {
+    font-size: 34px;
+  }
+
+  .faq {
+    padding: 50px 20px;
+  }
+
+  .faq-titolo {
+    font-size: 38px;
+  }
+
+  .faq-domanda {
+    font-size: 18px;
+  }
+}
